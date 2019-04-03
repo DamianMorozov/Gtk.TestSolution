@@ -3,13 +3,23 @@
 
 public partial class MainWindow
 {
-	private global::Gtk.HButtonBox hbuttonbox1;
+	private global::Gtk.Table table;
 
-	private global::Gtk.Button button3;
+	private global::Gtk.Button buttonShow;
 
-	private global::Gtk.Button button2;
+	private global::Gtk.ComboBox comboboxButtonsType;
 
-	private global::Gtk.Button button1;
+	private global::Gtk.ComboBox comboboxDialogFlags;
+
+	private global::Gtk.ComboBox comboboxMessageType;
+
+	private global::Gtk.Entry entryMessage;
+
+	private global::Gtk.Label labelButtonsType;
+
+	private global::Gtk.Label labelDialogFlags;
+
+	private global::Gtk.Label labelMessageType;
 
 	protected virtual void Build()
 	{
@@ -21,51 +31,119 @@ public partial class MainWindow
 		this.WindowPosition = ((global::Gtk.WindowPosition)(4));
 		this.Resizable = false;
 		// Container child MainWindow.Gtk.Container+ContainerChild
-		this.hbuttonbox1 = new global::Gtk.HButtonBox();
-		this.hbuttonbox1.Name = "hbuttonbox1";
-		// Container child hbuttonbox1.Gtk.ButtonBox+ButtonBoxChild
-		this.button3 = new global::Gtk.Button();
-		this.button3.CanFocus = true;
-		this.button3.Name = "button3";
-		this.button3.UseUnderline = true;
-		this.button3.Label = global::Mono.Unix.Catalog.GetString("GtkButton 3");
-		this.hbuttonbox1.Add(this.button3);
-		global::Gtk.ButtonBox.ButtonBoxChild w1 = ((global::Gtk.ButtonBox.ButtonBoxChild)(this.hbuttonbox1[this.button3]));
-		w1.Expand = false;
-		w1.Fill = false;
-		// Container child hbuttonbox1.Gtk.ButtonBox+ButtonBoxChild
-		this.button2 = new global::Gtk.Button();
-		this.button2.CanFocus = true;
-		this.button2.Name = "button2";
-		this.button2.UseUnderline = true;
-		this.button2.Label = global::Mono.Unix.Catalog.GetString("GtkButton 2");
-		this.hbuttonbox1.Add(this.button2);
-		global::Gtk.ButtonBox.ButtonBoxChild w2 = ((global::Gtk.ButtonBox.ButtonBoxChild)(this.hbuttonbox1[this.button2]));
-		w2.Position = 1;
-		w2.Expand = false;
-		w2.Fill = false;
-		// Container child hbuttonbox1.Gtk.ButtonBox+ButtonBoxChild
-		this.button1 = new global::Gtk.Button();
-		this.button1.CanFocus = true;
-		this.button1.Name = "button1";
-		this.button1.UseUnderline = true;
-		this.button1.Label = global::Mono.Unix.Catalog.GetString("GtkButton 1");
-		this.hbuttonbox1.Add(this.button1);
-		global::Gtk.ButtonBox.ButtonBoxChild w3 = ((global::Gtk.ButtonBox.ButtonBoxChild)(this.hbuttonbox1[this.button1]));
-		w3.Position = 2;
-		w3.Expand = false;
-		w3.Fill = false;
-		this.Add(this.hbuttonbox1);
+		this.table = new global::Gtk.Table(((uint)(4)), ((uint)(2)), false);
+		this.table.Name = "table";
+		this.table.RowSpacing = ((uint)(6));
+		this.table.ColumnSpacing = ((uint)(6));
+		// Container child table.Gtk.Table+TableChild
+		this.buttonShow = new global::Gtk.Button();
+		this.buttonShow.CanFocus = true;
+		this.buttonShow.Name = "buttonShow";
+		this.buttonShow.UseUnderline = true;
+		this.buttonShow.Label = global::Mono.Unix.Catalog.GetString("MessageDialog.Show");
+		this.table.Add(this.buttonShow);
+		global::Gtk.Table.TableChild w1 = ((global::Gtk.Table.TableChild)(this.table[this.buttonShow]));
+		w1.TopAttach = ((uint)(3));
+		w1.BottomAttach = ((uint)(4));
+		w1.YOptions = ((global::Gtk.AttachOptions)(4));
+		// Container child table.Gtk.Table+TableChild
+		this.comboboxButtonsType = global::Gtk.ComboBox.NewText();
+		this.comboboxButtonsType.AppendText(global::Mono.Unix.Catalog.GetString("Cancel"));
+		this.comboboxButtonsType.AppendText(global::Mono.Unix.Catalog.GetString("Close"));
+		this.comboboxButtonsType.AppendText(global::Mono.Unix.Catalog.GetString("None"));
+		this.comboboxButtonsType.AppendText(global::Mono.Unix.Catalog.GetString("Ok"));
+		this.comboboxButtonsType.AppendText(global::Mono.Unix.Catalog.GetString("OkCancel"));
+		this.comboboxButtonsType.AppendText(global::Mono.Unix.Catalog.GetString("YesNo"));
+		this.comboboxButtonsType.Name = "comboboxButtonsType";
+		this.comboboxButtonsType.Active = 0;
+		this.table.Add(this.comboboxButtonsType);
+		global::Gtk.Table.TableChild w2 = ((global::Gtk.Table.TableChild)(this.table[this.comboboxButtonsType]));
+		w2.TopAttach = ((uint)(2));
+		w2.BottomAttach = ((uint)(3));
+		w2.LeftAttach = ((uint)(1));
+		w2.RightAttach = ((uint)(2));
+		w2.YOptions = ((global::Gtk.AttachOptions)(4));
+		// Container child table.Gtk.Table+TableChild
+		this.comboboxDialogFlags = global::Gtk.ComboBox.NewText();
+		this.comboboxDialogFlags.AppendText(global::Mono.Unix.Catalog.GetString("DestroyWithParent"));
+		this.comboboxDialogFlags.AppendText(global::Mono.Unix.Catalog.GetString("Modal"));
+		this.comboboxDialogFlags.AppendText(global::Mono.Unix.Catalog.GetString("NoSeparator"));
+		this.comboboxDialogFlags.Name = "comboboxDialogFlags";
+		this.comboboxDialogFlags.Active = 0;
+		this.table.Add(this.comboboxDialogFlags);
+		global::Gtk.Table.TableChild w3 = ((global::Gtk.Table.TableChild)(this.table[this.comboboxDialogFlags]));
+		w3.LeftAttach = ((uint)(1));
+		w3.RightAttach = ((uint)(2));
+		w3.XOptions = ((global::Gtk.AttachOptions)(4));
+		w3.YOptions = ((global::Gtk.AttachOptions)(4));
+		// Container child table.Gtk.Table+TableChild
+		this.comboboxMessageType = global::Gtk.ComboBox.NewText();
+		this.comboboxMessageType.AppendText(global::Mono.Unix.Catalog.GetString("Error"));
+		this.comboboxMessageType.AppendText(global::Mono.Unix.Catalog.GetString("Info"));
+		this.comboboxMessageType.AppendText(global::Mono.Unix.Catalog.GetString("Other"));
+		this.comboboxMessageType.AppendText(global::Mono.Unix.Catalog.GetString("Question"));
+		this.comboboxMessageType.AppendText(global::Mono.Unix.Catalog.GetString("Warning"));
+		this.comboboxMessageType.Name = "comboboxMessageType";
+		this.comboboxMessageType.Active = 0;
+		this.table.Add(this.comboboxMessageType);
+		global::Gtk.Table.TableChild w4 = ((global::Gtk.Table.TableChild)(this.table[this.comboboxMessageType]));
+		w4.TopAttach = ((uint)(1));
+		w4.BottomAttach = ((uint)(2));
+		w4.LeftAttach = ((uint)(1));
+		w4.RightAttach = ((uint)(2));
+		w4.XOptions = ((global::Gtk.AttachOptions)(4));
+		w4.YOptions = ((global::Gtk.AttachOptions)(4));
+		// Container child table.Gtk.Table+TableChild
+		this.entryMessage = new global::Gtk.Entry();
+		this.entryMessage.CanFocus = true;
+		this.entryMessage.Name = "entryMessage";
+		this.entryMessage.Text = global::Mono.Unix.Catalog.GetString("Test message");
+		this.entryMessage.IsEditable = true;
+		this.entryMessage.InvisibleChar = '•';
+		this.table.Add(this.entryMessage);
+		global::Gtk.Table.TableChild w5 = ((global::Gtk.Table.TableChild)(this.table[this.entryMessage]));
+		w5.TopAttach = ((uint)(3));
+		w5.BottomAttach = ((uint)(4));
+		w5.LeftAttach = ((uint)(1));
+		w5.RightAttach = ((uint)(2));
+		w5.XOptions = ((global::Gtk.AttachOptions)(4));
+		w5.YOptions = ((global::Gtk.AttachOptions)(4));
+		// Container child table.Gtk.Table+TableChild
+		this.labelButtonsType = new global::Gtk.Label();
+		this.labelButtonsType.Name = "labelButtonsType";
+		this.labelButtonsType.LabelProp = global::Mono.Unix.Catalog.GetString("ButtonsType");
+		this.table.Add(this.labelButtonsType);
+		global::Gtk.Table.TableChild w6 = ((global::Gtk.Table.TableChild)(this.table[this.labelButtonsType]));
+		w6.TopAttach = ((uint)(2));
+		w6.BottomAttach = ((uint)(3));
+		w6.XOptions = ((global::Gtk.AttachOptions)(4));
+		w6.YOptions = ((global::Gtk.AttachOptions)(4));
+		// Container child table.Gtk.Table+TableChild
+		this.labelDialogFlags = new global::Gtk.Label();
+		this.labelDialogFlags.Name = "labelDialogFlags";
+		this.labelDialogFlags.LabelProp = global::Mono.Unix.Catalog.GetString("DialogFlags");
+		this.table.Add(this.labelDialogFlags);
+		global::Gtk.Table.TableChild w7 = ((global::Gtk.Table.TableChild)(this.table[this.labelDialogFlags]));
+		w7.XOptions = ((global::Gtk.AttachOptions)(4));
+		w7.YOptions = ((global::Gtk.AttachOptions)(4));
+		// Container child table.Gtk.Table+TableChild
+		this.labelMessageType = new global::Gtk.Label();
+		this.labelMessageType.Name = "labelMessageType";
+		this.labelMessageType.LabelProp = global::Mono.Unix.Catalog.GetString("MessageType");
+		this.table.Add(this.labelMessageType);
+		global::Gtk.Table.TableChild w8 = ((global::Gtk.Table.TableChild)(this.table[this.labelMessageType]));
+		w8.TopAttach = ((uint)(1));
+		w8.BottomAttach = ((uint)(2));
+		w8.XOptions = ((global::Gtk.AttachOptions)(4));
+		w8.YOptions = ((global::Gtk.AttachOptions)(4));
+		this.Add(this.table);
 		if ((this.Child != null))
 		{
 			this.Child.ShowAll();
 		}
 		this.DefaultWidth = 400;
-		this.DefaultHeight = 266;
+		this.DefaultHeight = 209;
 		this.Show();
-		this.DeleteEvent += new global::Gtk.DeleteEventHandler(this.OnDeleteEvent);
-		this.button3.Clicked += new global::System.EventHandler(this.OnButton3Clicked);
-		this.button2.Clicked += new global::System.EventHandler(this.OnButton2Clicked);
-		this.button1.Clicked += new global::System.EventHandler(this.OnButton1Clicked);
+		this.buttonShow.Clicked += new global::System.EventHandler(this.OnButtonShowClicked);
 	}
 }

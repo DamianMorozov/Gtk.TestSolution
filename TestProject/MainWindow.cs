@@ -1,42 +1,30 @@
 ﻿using System;
 using Gtk;
+using LibHelper;
 
-public partial class MainWindow : Gtk.Window
+public partial class MainWindow : Window
 {
-    public MainWindow() : base(Gtk.WindowType.Toplevel) => Build();
+    #region Private fields & properties
 
-    protected void OnDeleteEvent(object sender, DeleteEventArgs a)
+    private MsgHelper _msgHelper = MsgHelper.Instance;
+
+    #endregion
+
+    public MainWindow() : base(WindowType.Toplevel) => Build();
+
+    private void OnButtonExitClicked(object sender, EventArgs e)
     {
         Application.Quit();
-        a.RetVal = true;
+        //a.RetVal = true;
     }
 
-    public void Show(Gtk.Window parent_window, DialogFlags flags, MessageType msgtype, ButtonsType btntype, string msg)
+    private void OnButtonShowClicked(object sender, EventArgs e)
     {
-        MessageDialog md = new MessageDialog(parent_window, flags, msgtype, btntype, msg);
-        md.Run();
-        md.Destroy();
-    }
-
-    public static void Show(string msg)
-    {
-        MessageDialog md = new MessageDialog(null, DialogFlags.Modal, MessageType.Info, ButtonsType.Ok, msg);
-        md.Run();
-        md.Destroy();
-    }
-
-    protected void OnButton1Clicked(object sender, EventArgs e)
-    {
-        Show("Button1");
-    }
-
-    protected void OnButton2Clicked(object sender, EventArgs e)
-    {
-        Show("Button2");
-    }
-
-    protected void OnButton3Clicked(object sender, EventArgs e)
-    {
-        Show("Button3");
+        _msgHelper.Show(
+            _msgHelper.GetDialogFlags(comboboxDialogFlags),
+            _msgHelper.GetMessageType(comboboxMessageType),
+            _msgHelper.GetButtonsType(comboboxButtonsType), 
+            entryMessage.Text);
     }
 }
+

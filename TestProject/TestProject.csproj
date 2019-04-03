@@ -81,5 +81,11 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LibHelper\LibHelper.csproj">
+      <Project>{FB545FF6-237C-4438-829B-122B60353E43}</Project>
+      <Name>LibHelper</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
